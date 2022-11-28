@@ -1,0 +1,17 @@
+{
+  "name": "boxrec-puppeteer",
+  "description": "makes HTTP requests to Boxrec and returns the HTML of a boxer or the scoring of a bout",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "puppeteer": "^19.3.0",
+    "yargs": "^17.6.2"
+  },
+  "keywords": [
+    "boxrec",
+    "boxing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stavia/boxrec-puppeteer"
+  }
+}
