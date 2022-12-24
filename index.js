@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const yargs = require('yargs');
 const scraper = require('./scraper');
 require('dotenv').config();
@@ -27,11 +26,9 @@ if (argv._.includes('boxer')) {
                 console.log("The ID of the boxer is required");
                 process.exit(1);
             }
-
-            const browser = await puppeteer.launch({ headless: true });
-            let result = await scraper.findBoxer(browser, argv.id);
+            let result = await scraper.findBoxer(argv.id, process.env.BOXREC_USERNAME, process.env.BOXREC_PASSWORD);
             console.log(result);
-            await browser.close();
+
         })()
     } catch (err) {
         console.error(err)
@@ -47,10 +44,8 @@ if (argv._.includes('scoring')) {
                 process.exit(1);
             }
 
-            const browser = await puppeteer.launch({ headless: true });
-            let result = await scraper.findScoring(browser, argv.boutId);
+            let result = await scraper.findScoring(argv.boutId, process.env.BOXREC_USERNAME, process.env.BOXREC_PASSWORD);
             console.log(result);
-            await browser.close();
         })()
     } catch (err) {
         console.error(err)
